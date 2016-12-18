@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/awardRotate.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/o.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="turnplate" style="border:1px solid red;width: 516px;height: 516px;" ></div>
+	<button>转</button>
+</body>
+<script>
+	var turnplate={
+		ele:'.turnplate',//容器
+		restaraunts: [ "五等奖", "谢谢参与", "四等奖","三等奖" ,"二等奖", "11"],//大转盘奖品名称
+		colors:["#fff", "#83c3e0", "#fff", "#83c3e0","#fff", "red",], //大转盘奖品区块对应背景颜色
+		fontcolors:["#83c3e0","#fff","#83c3e0","#fff", "#83c3e0","pink", ],//大转盘奖品区块对应文字颜色
+		outsideRadius:222,//大转盘外圆的半径
+		textRadius:165,	//大转盘奖品位置距离圆心的距离
+		insideRadius:65,//大转盘内圆的半径
+		startAngle:0,//开始角度
+	};
+	var o = new turntable(turnplate);
+	$('button').click(function(){
+		//o.start(2);// 奖品的下标 还可以传 转动持续时间 转动结束的回调   ！！！下标一定要传哦
+		//o.start(2,10,function(){alert('转完了')}) //奖品的下标  转动持续时间 转动结束的回调
+		o.start(2,function(){alert('转完了')})//奖品的下标  转动结束的回调
+	})
+</script>
+</html>
